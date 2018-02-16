@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.san.crm.staff.domain">
+	<class name="CrmStaff" table="crm_staff">
+		<id name="staffId">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="loginName"></property>
+		<property name="loginPwd"></property>
+		<property name="staffName"></property>
+		<property name="gender"></property>
+		<property name="onDutyDate">
+			<column name="onDutyDate" sql-type="datetime"></column>
+		</property>
+		<!-- 多对一，多个员工对应一个职位 -->
+		<many-to-one name="post" class="com.san.crm.post.domain.CrmPost" column="postId"></many-to-one>
+	</class>
+</hibernate-mapping>
