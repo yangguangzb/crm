@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.san.crm.department.domain">
+	<class name="CrmDepartment" table="crm_department" >
+		<id name="depId">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="depName"></property>
+		<!-- 一对多，一个部门对应多个职务 -->
+		<set name="postSet">
+			<key column="depId"></key>
+			<one-to-many class="com.san.crm.post.domain.CrmPost"/>
+		</set>
+	</class>
+</hibernate-mapping>
