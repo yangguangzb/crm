@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 员工配置 -->
+	<package name="sta" namespace="/" extends="common">
+		<action name="staffAction_*" class="com.san.crm.staff.web.action.StaffAction" method="{1}">
+			<!-- 登录成功 -->
+			<result name="success" type="redirectAction">staffAction_home</result>
+			<!-- 登录失败 -->
+			<result name="login">/WEB-INF/pages/login.jsp</result>
+			<!-- 首页 -->
+			<result name="home">/WEB-INF/pages/frame.jsp</result>
+			<!-- 查询所有员工 -->
+			<result name="findAll">/WEB-INF/pages/staff/listStaff.jsp</result>
+			<!-- 显示员工信息 -->
+			<result name="editUI">/WEB-INF/pages/staff/editStaff.jsp</result>
+			<!-- 更新员工信息 -->
+			<result name="edit" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">staffAction_findAll</param>
+			</result>
+		</action>
+	</package>
+</struts>

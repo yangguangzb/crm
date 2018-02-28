@@ -16,4 +16,14 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
 		}
 		return null;
 	}
+	
+	//查询所有员工
+	public List<CrmStaff> findAll() {
+		return this.getHibernateTemplate().find("from CrmStaff");
+	}
+	
+	//通过ID查询员工
+	public CrmStaff findById(String staffId) {
+		return this.getHibernateTemplate().get(CrmStaff.class, staffId);
+	}
 }

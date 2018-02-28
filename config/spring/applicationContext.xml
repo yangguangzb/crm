@@ -64,6 +64,10 @@
 	<!-- 导入其他配置文件 -->
 	<!-- 员工 -->
 	<import resource="applicationContext-staff.xml"/>
+	<!-- 部门 -->
+	<import resource="applicationContext-department.xml"/>
+	<!-- 职务 -->
+	<import resource="applicationContext-post.xml"/>
 </beans>
 
 

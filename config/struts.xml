@@ -9,9 +9,41 @@
 	<constant name="struts.ui.theme" value="simple"></constant>
 	<!-- 公共项 -->
 	<package name="common" namespace="/" extends="struts-default">
-	
+		<!-- 登陆拦截器 -->
+		<interceptors>
+			<!-- 注册拦截器 -->
+			<interceptor name="loginInterceptor" class="com.san.crm.web.interceptor.LoginInterceptor"></interceptor>
+			<!-- 自定义拦截器栈 -->
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<!-- login不需要拦截 
+					excludeMethods 配置需要拦截的方法，多个方法使用逗号隔开
+				-->
+				<interceptor-ref name="loginInterceptor">
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 声明默认 -->
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+		
+		<!-- 全局结果集 -->
+		<global-results>
+			<result name="login">/WEB-INF/pages/login.jsp</result>
+		</global-results>
+		
+		<!-- 配置公共jsp访问action
+			通配符uiAction_*_*
+			第一个星匹配文件夹名称，通过{1}获取
+			第二个星匹配jsp文件名称，通过{2}获取
+		 -->
+		<action name="uiAction_*_*">
+			<result>/WEB-INF/pages/{1}/{2}.jsp</result>
+		</action>
 	</package>
 	
 	<!-- 加载其他配置文件 -->
 	<include file="struts/struts-staff.xml"></include>
+	<include file="struts/struts-post.xml"></include>
 </struts>
