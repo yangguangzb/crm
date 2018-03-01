@@ -68,6 +68,8 @@
 	<import resource="applicationContext-department.xml"/>
 	<!-- 职务 -->
 	<import resource="applicationContext-post.xml"/>
+	<!-- 课程类别 -->
+	<import resource="applicationContext-coursetype.xml"/>
 </beans>
 
 

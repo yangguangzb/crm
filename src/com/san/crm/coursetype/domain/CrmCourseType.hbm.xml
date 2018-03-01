@@ -8,9 +8,9 @@
 			<generator class="uuid"></generator>
 		</id>
 		<property name="courseCost"></property>
-		<properties name="total"></properties>
+		<property name="total"></property>
 		<property name="courseName"></property>
-		<properties name="remark"></properties>
+		<property name="remark"></property>
 		<!-- 一对多，一个课程对应多个班级 -->
 		<set name="classesSet">
 			<key column="courseTypeId"></key>

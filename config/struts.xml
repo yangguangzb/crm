@@ -44,6 +44,10 @@
 	</package>
 	
 	<!-- 加载其他配置文件 -->
+	<!-- 员工 -->
 	<include file="struts/struts-staff.xml"></include>
+	<!-- 职务 -->
 	<include file="struts/struts-post.xml"></include>
+	<!-- 课程类别 -->
+	<include file="struts/struts-coursetype.xml"></include>
 </struts>

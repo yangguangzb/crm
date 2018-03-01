@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 课程类别配置 -->
+	<package name="course" namespace="/" extends="common">
+		<action name="courseTypeAction_*" class="com.san.crm.coursetype.web.action.CourseTypeAction" method="{1}">
+			<!-- 查询所有 -->
+			<result name="findAll">/WEB-INF/pages/coursetype/listCourse.jsp</result>
+		</action>
+	</package>
+</struts>
