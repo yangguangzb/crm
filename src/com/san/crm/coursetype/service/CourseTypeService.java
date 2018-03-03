@@ -3,6 +3,7 @@ package com.san.crm.coursetype.service;
 import java.util.List;
 
 import com.san.crm.coursetype.domain.CrmCourseType;
+import com.san.crm.page.PageBean;
 
 public interface CourseTypeService {
 	/**
@@ -30,4 +31,14 @@ public interface CourseTypeService {
 	 * @param courseType
 	 */
 	public void addOrEdit(CrmCourseType courseType);
+	
+	/**
+	 * 分页查询
+	 * @param courseType
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public PageBean<CrmCourseType> findAll(CrmCourseType courseType,int pageNum,int pageSize);
+	
 }
