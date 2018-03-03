@@ -57,5 +57,13 @@ public class CourseTypeServiceImpl implements CourseTypeService {
 		Object[] params=paramsList.toArray();
 		return courseTypeDao.findAll(condition, params);
 	}
+	
+	public CrmCourseType findById(String courseTypeId) {
+		
+		return courseTypeDao.findById(courseTypeId);
+	}
+	public void addOrEdit(CrmCourseType courseType) {
+		this.courseTypeDao.saveOrUpdate(courseType);
+	}
 
 }

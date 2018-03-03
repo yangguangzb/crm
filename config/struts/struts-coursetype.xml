@@ -8,6 +8,24 @@
 		<action name="courseTypeAction_*" class="com.san.crm.coursetype.web.action.CourseTypeAction" method="{1}">
 			<!-- 查询所有 -->
 			<result name="findAll">/WEB-INF/pages/coursetype/listCourse.jsp</result>
+			<!-- 添加编辑，显示jsp页面 -->
+			<result name="addOrEditUI">WEB-INF/pages/coursetype/addOrEditCourse.jsp</result>
+			<!-- 添加或编辑功能 -->
+			<result name="addOrEdit" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">courseTypeAction_findAll</param>
+			</result>
 		</action>
 	</package>
 </struts>
+
+
+
+
+
+
+
+
+
+
+

@@ -28,9 +28,9 @@
 			<img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif" />
 		</a>      
     	<%--编辑前：添加类别 --%>
-    	<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp">
+    	<s:a namespace="/" action="courseTypeAction_addOrEditUI">
 	       	<img src="${pageContext.request.contextPath}/images/button/tianjia.gif" />
-    	</a>
+    	</s:a>
     </td>
     <td width="3%" align="right"><img src="${pageContext.request.contextPath}/images/tright.gif"/></td>
   </tr>
@@ -91,11 +91,14 @@
 	    <td align="center"><s:property value="#courseType.total"/></td>
 	    <td align="center"><s:property value="#courseType.courseCost"/></td>
 	  	<td width="11%" align="center">
-	  		<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
+	  		<s:a namespace="/" action="courseTypeAction_addOrEditUI">
+	  			<!-- 注入课程类别id -->
+	  			<s:param name="courseTypeId" value="courseTypeId"></s:param>
+	  			<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" />
+	  		</s:a>
 	  	</td>
    </tr>
   </s:iterator>
-   <s:debug></s:debug>
 </table>
 <table border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>

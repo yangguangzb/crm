@@ -18,4 +18,16 @@ public interface CourseTypeService {
 	 */
 	public List<CrmCourseType> findAll(CrmCourseType courseType);
 	
+	/**
+	 * 根据id查询
+	 * @param courseTypeId
+	 * @return
+	 */
+	public CrmCourseType findById(String courseTypeId);
+	
+	/**
+	 * 编辑或保存课程类别
+	 * @param courseType
+	 */
+	public void addOrEdit(CrmCourseType courseType);
 }

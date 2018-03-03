@@ -19,4 +19,16 @@ public interface CourseTypeDao {
 	 */
 	public List<CrmCourseType> findAll(String condition,Object[] params);
 	
+	/**
+	 * 通过课程类别id查询
+	 * @param courseTypeId
+	 * @return
+	 */
+	public CrmCourseType findById(String courseTypeId);
+	
+	/**
+	 * 编辑或保存课程类别
+	 * @param courseType
+	 */
+	public void saveOrUpdate(CrmCourseType courseType);
 }

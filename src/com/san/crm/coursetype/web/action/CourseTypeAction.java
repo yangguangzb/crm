@@ -2,6 +2,8 @@ package com.san.crm.coursetype.web.action;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -30,4 +32,31 @@ public class CourseTypeAction extends ActionSupport implements ModelDriven<CrmCo
 		return "findAll";
 	}
 	
+	/**
+	 * 添加或编辑显示jsp页面
+	 * @return
+	 */
+	public String addOrEditUI(){
+		if(StringUtils.isNotBlank(this.courseType.getCourseTypeId())){
+			//编辑(有id)，查询数据并显示
+			CrmCourseType findCourseType=this.courseTypeService.findById(this.courseType.getCourseTypeId());
+			ActionContext.getContext().getValueStack().push(findCourseType);
+		}
+		return "addOrEditUI";
+	}
+	
+	/**
+	 * 编辑或添加功能
+	 * @return
+	 */
+	public String addOrEdit(){
+		this.courseTypeService.addOrEdit(courseType);
+		return "addOrEdit";
+	}
 }
+
+
+
+
+
+
