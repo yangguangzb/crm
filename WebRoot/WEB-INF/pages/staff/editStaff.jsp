@@ -63,7 +63,7 @@
 	    </td>
 	    <td width="8%">职务：</td>
 	    <td width="62%">
-	    	<s:select list="post.department.postSet" name="post.postId"
+	    	<s:select list="post !=null ? post.department.postSet : {}" name="post.postId"
 	    		listKey="postId" listValue="postName" id="postSelectId"
 	    		headerKey="" headerValue="----请--选--择----"
 	    	>
