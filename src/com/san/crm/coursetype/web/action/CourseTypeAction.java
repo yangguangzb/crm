@@ -1,6 +1,4 @@
 package com.san.crm.coursetype.web.action;
-
-import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import com.san.crm.base.BaseAction;
 import com.san.crm.coursetype.domain.CrmCourseType;
