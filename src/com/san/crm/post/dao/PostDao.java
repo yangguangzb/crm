@@ -2,10 +2,11 @@ package com.san.crm.post.dao;
 
 import java.util.List;
 
+import com.san.crm.base.BaseDao;
 import com.san.crm.department.domain.CrmDepartment;
 import com.san.crm.post.domain.CrmPost;
 
-public interface PostDao {
+public interface PostDao extends BaseDao<CrmPost>{
 	/**
 	 * 通过部门查询所有的职务
 	 * @param crmDepartment

@@ -4,6 +4,8 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.san.crm.base.BaseDao;
+import com.san.crm.coursetype.domain.CrmCourseType;
+import com.san.crm.page.PageHibernateCallback;
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 	//T 在编译时是变量，在运行时，才可以获得具体的类型
 	private Class<?> beanclass;
@@ -43,4 +45,24 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 		return this.getHibernateTemplate().find("from "+beanclass.getName());
 	}
 
+	//根据条件查询课程类别
+	public List<T> findAll(String condition, Object[] params) {
+		String hql="from "+beanclass.getName()+" where 1=1 "+condition;
+		return this.getHibernateTemplate().find(hql,params);
+	}
+
+	//分页获得总记录数
+	public int getTotalRecord(String condition, Object[] params) {
+		String hql="select count(c) from "+beanclass.getName()+" c where 1=1 "+condition;
+		List<Long> list=this.getHibernateTemplate().find(hql,params);
+		return list.get(0).intValue();
+	}
+	
+	//分页查询
+	public List<T> findAll(String condition, Object[] params,
+			int startIndex, int pageSize) {
+		String hql="from "+beanclass.getName()+" where 1=1 "+condition;
+		return this.getHibernateTemplate().execute(
+				new PageHibernateCallback<T>().setHql(hql).setParams(params).setPageSize(pageSize).setStartIndex(startIndex));
+	}
 }
