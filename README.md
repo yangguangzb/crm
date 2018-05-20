@@ -7,7 +7,7 @@ windows8+myeclipse10.0+mysql5.5+git+tomcat7.x
 CRM系统用于维护学生与学校之间的关系
 
 ### 技术架构
-Spring+Hibernate+Struts2
+Spring+Hibernate+Struts2<br/>
 文件上传下载技术、MD5加密、ajax二级联动、分页查询、json、c3p0等
 
 ### 基本模块功能
